@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,8 +35,9 @@ public class BasePage {
 
     public Boolean messageIsPresent(Messages message) {
         for(String msg: getMessages()) {
-            msg.contains(message.getMessage());
-            return true;
+            if(msg.contains(message.getMessage())) {
+                return true;
+            }
         }
         return false;
     }
